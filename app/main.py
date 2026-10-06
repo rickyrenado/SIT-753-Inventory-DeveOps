@@ -125,3 +125,11 @@ def delete_product(product_id: int):
         status_code=404,
         detail="Product not found"
     )
+
+@app.get("/metrics")
+def metrics():
+    return {
+        "application": "inventory-api",
+        "status": "UP",
+        "products_count": len(products)
+    }
